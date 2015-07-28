@@ -4,9 +4,22 @@ using System.Collections.Generic;
 
 namespace CriticalHit
 {
-	public class Config
+	public enum WeaponType
+	{
+		Melee,
+		Range,
+		Magic,
+		Explosive
+	}
+
+	public class CritMessage
 	{
 		public Dictionary<string, int[]> Messages = new Dictionary<string, int[]>();
+	}
+
+	public class Config
+	{
+		public Dictionary<WeaponType, CritMessage> CritMessages = new Dictionary<WeaponType, CritMessage>();
 
 		public void Write(string path)
 		{
@@ -40,7 +53,7 @@ namespace CriticalHit
 			using (StreamReader sr = new StreamReader(stream))
 			{
 				Config c = JsonConvert.DeserializeObject<Config>(sr.ReadToEnd());
-				Messages = c.Messages;
+				CritMessages = c.CritMessages;
 			}
 		}
 	}

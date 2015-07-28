@@ -114,5 +114,15 @@ namespace CriticalHit
 
 			config.Write(path);
 		}
+
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing)
+			{
+				ServerApi.Hooks.NetGetData.Deregister(this, OnGetData);
+			}
+
+			base.Dispose(disposing);
+		}
 	}
 }

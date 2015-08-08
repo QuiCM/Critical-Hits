@@ -13,7 +13,7 @@ using TShockAPI.Hooks;
 
 namespace CriticalHit
 {
-	[ApiVersion(1, 20)]
+	[ApiVersion(1, 21)]
 	public class Plugin : TerrariaPlugin
 	{
 		internal Config config = new Config();
@@ -187,6 +187,7 @@ namespace CriticalHit
 			if (disposing)
 			{
 				ServerApi.Hooks.NetGetData.Deregister(this, OnGetData);
+				GeneralHooks.ReloadEvent -= OnReload;
 			}
 
 			base.Dispose(disposing);

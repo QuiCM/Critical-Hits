@@ -13,7 +13,7 @@ using TShockAPI.Hooks;
 
 namespace CriticalHit
 {
-	[ApiVersion(1, 22)]
+	[ApiVersion(1, 23)]
 	public class Plugin : TerrariaPlugin
 	{
 		internal Config config = new Config();

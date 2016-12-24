@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Streams;
 using System.Linq;
+using Microsoft.Xna.Framework;
 
 
 using Terraria;
@@ -13,7 +14,7 @@ using TShockAPI.Hooks;
 
 namespace CriticalHit
 {
-	[ApiVersion(1, 25)]
+	[ApiVersion(2, 0)]
 	public class Plugin : TerrariaPlugin
 	{
 		internal Config config = new Config();

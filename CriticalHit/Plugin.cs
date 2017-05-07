@@ -8,13 +8,14 @@ using Microsoft.Xna.Framework;
 
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using TerrariaApi.Server;
 using TShockAPI;
 using TShockAPI.Hooks;
 
 namespace CriticalHit
 {
-	[ApiVersion(2, 0)]
+	[ApiVersion(2, 1)]
 	public class Plugin : TerrariaPlugin
 	{
 		internal Config config = new Config();
@@ -150,8 +151,8 @@ namespace CriticalHit
 
 					Color c = new Color(message.Value[0], message.Value[1], message.Value[2]);
 
-					NetMessage.SendData((int)PacketTypes.CreateCombatText,
-						-1, -1, message.Key, (int)c.PackedValue, Main.npc[id].position.X, Main.npc[id].position.Y);
+					NetMessage.SendData(119,
+						-1, -1, NetworkText.FromLiteral(message.Key), (int)c.PackedValue, Main.npc[id].position.X, Main.npc[id].position.Y);
 				}
 			}
 		}
